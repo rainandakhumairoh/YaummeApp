@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -137,7 +138,7 @@ fun box_progres(judul: String = "None"){
 fun box_progres2(judul: String = "None", route: String, navController: NavController){
     Box(
         modifier = Modifier
-            .padding(end = 15.dp , bottom = 10.dp)
+            .padding(end = 15.dp, bottom = 10.dp)
             .clickable {
                 navController.navigate(route)
             }
@@ -337,13 +338,87 @@ fun Dashboard(scrollState: ScrollState, navController: NavController) {
                     )
                     .fillMaxWidth()
                     .background(color = Color(android.graphics.Color.parseColor("#4F5139")))
-                    .height(200.dp)
+                    .height(180.dp)
 //                    .clickable {
 //                        navController.navigate(rute)
 //                    }
             )
 
-            Box( //Terakhir dilihat
+            Box( //lihat target hari ini
+                modifier = Modifier
+                    .padding(top = 15.dp)
+                    .shadow(
+                        elevation = 5.dp,
+                        shape = RoundedCornerShape(
+                            topStart = 10.dp,
+                            bottomStart = 10.dp,
+                            topEnd = 10.dp,
+                            bottomEnd = 10.dp,
+                        ),
+                        clip = false
+                    )
+                    .clickable {
+//                        navController.navigate(route)
+                    }
+                    .clip(
+                        RoundedCornerShape(
+                            topStart = 10.dp,
+                            bottomStart = 10.dp,
+                            topEnd = 10.dp,
+                            bottomEnd = 10.dp,
+                        )
+                    )
+                    .fillMaxWidth()
+                    .background(color = Color(android.graphics.Color.parseColor("#FFFFFF")))
+                    .height(50.dp)
+                ,
+
+                ){
+                Row (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 30.dp, end = 20.dp)
+                        .fillMaxHeight(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+
+                    ){
+
+                    Image(
+                        modifier = Modifier
+                            .height(25.dp)
+                            .width(25.dp)
+                            .clickable {
+//                                navController.navigate(route)
+                            },
+                        painter = painterResource(id = R.drawable.list_target),
+                        contentDescription = "List Target",
+                    )
+
+                    Text(
+                        modifier = Modifier
+                            .padding(end = 60.dp),
+                        text = "Lihat Target Hari Ini",
+                        fontFamily = dmsansFontFamily,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp,
+                        color = Color(android.graphics.Color.parseColor("#4F5139")),
+                    )
+
+                    Image(
+                        modifier = Modifier
+                            .height(20.dp)
+                            .width(20.dp)
+                            .clickable {
+//                                navController.navigate(route)
+                            },
+                        painter = painterResource(id = R.drawable.next_logo),
+                        contentDescription = "Next logo",
+                    )
+                }
+            }
+
+            Box( //Target ibadah
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 25.dp)
@@ -360,10 +435,301 @@ fun Dashboard(scrollState: ScrollState, navController: NavController) {
                     )
 
 //                    box_materi("00.00", "04.34", "Ragam Subjek", "Video_0", navController)
+
+                    Row (
+                        modifier = Modifier
+                            .padding(top = 5.dp)
+                            .offset(y = (-5).dp)
+                            .fillMaxWidth()
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+
+                        ){
+                        Box( // quran
+                            modifier = Modifier
+                                .shadow(
+                                    elevation = 5.dp,
+                                    shape = RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    ),
+                                    clip = false
+                                )
+                                .clickable {
+//                        navController.navigate(route)
+                                }
+                                .clip(
+                                    RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    )
+                                )
+                                .height(90.dp)
+                                .width(75.dp)
+                                .background(color = Color(android.graphics.Color.parseColor("#4F5139")))
+                            ,
+
+                            ){
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 30.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+
+                                Image(
+                                    modifier = Modifier
+                                        .height(35.dp)
+                                        .width(35.dp)
+                                        .clickable {
+//                                navController.navigate(route)
+                                        },
+                                    painter = painterResource(id = R.drawable.quran_white),
+                                    contentDescription = "quran",
+                                )
+                            }
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 40.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+                                Text(
+                                    text = "Qur'an",
+                                    fontFamily = dmsansFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    color =  Color.White,
+                                    fontSize = 14.sp
+
+                                )
+                            }
+                        }
+
+                        Box( // Dzikir
+                            modifier = Modifier
+                                .shadow(
+                                    elevation = 5.dp,
+                                    shape = RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    ),
+                                    clip = false
+                                )
+                                .clickable {
+//                        navController.navigate(route)
+                                }
+                                .clip(
+                                    RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    )
+                                )
+                                .height(90.dp)
+                                .width(75.dp)
+                                .background(color = Color(android.graphics.Color.parseColor("#4F5139")))
+                            ,
+
+                            ){
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 30.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+
+                                Image(
+                                    modifier = Modifier
+                                        .height(35.dp)
+                                        .width(35.dp)
+                                        .clickable {
+//                                navController.navigate(route)
+                                        },
+                                    painter = painterResource(id = R.drawable.dzikir),
+                                    contentDescription = "dzikir",
+                                )
+                            }
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 40.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+                                Text(
+                                    text = "Dzikir",
+                                    fontFamily = dmsansFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    color =  Color.White,
+                                    fontSize = 14.sp
+
+                                )
+                            }
+                        }
+
+                        Box( // Shalat
+                            modifier = Modifier
+                                .shadow(
+                                    elevation = 5.dp,
+                                    shape = RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    ),
+                                    clip = false
+                                )
+                                .clickable {
+//                        navController.navigate(route)
+                                }
+                                .clip(
+                                    RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    )
+                                )
+                                .height(90.dp)
+                                .width(75.dp)
+                                .background(color = Color(android.graphics.Color.parseColor("#4F5139")))
+                            ,
+
+                            ){
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 30.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+
+                                Image(
+                                    modifier = Modifier
+                                        .height(35.dp)
+                                        .width(35.dp)
+                                        .clickable {
+//                                navController.navigate(route)
+                                        },
+                                    painter = painterResource(id = R.drawable.shalat),
+                                    contentDescription = "shalat",
+                                )
+                            }
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 40.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+                                Text(
+                                    text = "Shalat",
+                                    fontFamily = dmsansFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    color =  Color.White,
+                                    fontSize = 14.sp
+
+                                )
+                            }
+                        }
+
+                        Box( // Puasa
+                            modifier = Modifier
+                                .shadow(
+                                    elevation = 5.dp,
+                                    shape = RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    ),
+                                    clip = false
+                                )
+                                .clickable {
+//                        navController.navigate(route)
+                                }
+                                .clip(
+                                    RoundedCornerShape(
+                                        topStart = 10.dp,
+                                        bottomStart = 10.dp,
+                                        topEnd = 10.dp,
+                                        bottomEnd = 10.dp,
+                                    )
+                                )
+                                .height(90.dp)
+                                .width(75.dp)
+                                .background(color = Color(android.graphics.Color.parseColor("#4F5139")))
+                            ,
+
+                            ){
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 30.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+
+                                Image(
+                                    modifier = Modifier
+                                        .height(35.dp)
+                                        .width(35.dp)
+                                        .clickable {
+//                                navController.navigate(route)
+                                        },
+                                    painter = painterResource(id = R.drawable.puasa),
+                                    contentDescription = "puasa",
+                                )
+                            }
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 40.dp)
+                                    .fillMaxHeight(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+
+                                ){
+                                Text(
+                                    text = "Puasa",
+                                    fontFamily = dmsansFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    color =  Color.White,
+                                    fontSize = 14.sp
+
+                                )
+                            }
+                        }
+
+                    }
                 }
             }
 
-            Box( //Materi
+            Box( //Misi harian
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 25.dp)
@@ -396,7 +762,7 @@ fun Dashboard(scrollState: ScrollState, navController: NavController) {
                 }
             }
 
-            Box( //Belajar
+            Box( //Progres
                 modifier = Modifier
                     .padding(top = 25.dp)
             ){
